@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    .bigcont {
+      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAGT6F4rSmbyQVPqkX3fWT-D75qufe5r298WZEQa9d_5uyOdzW5N_TskZyHhL0kzauvQo&usqp=CAU);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 100%;
+      height: 100vh;
+    }
+    .myform {
+      background-image: linear-gradient(
+        to top right,
+        rgba(195, 195, 187, 0.9),
+        rgba(240, 240, 237)
+      );
+    }
+
+    hr{
+      border: 5px solid rgba(31, 31, 27, 0.9);
+    }
+  </style>
+  <body>
+    <div class="bigcont p-5">
+      <form id="form" action="" class="w-50 mx-auto myform shadow rounded-2 border p-4">
+        <h1 class="text-center fs-1 fw-bolder">Ultimate Guessing game</h1>
+        <div class="d-flex align-items-center justify-content-between my-2">
+          <div class="border shadow p-2 rounded-2 m-2">Try Your Luck</div>
+          <h6>( Between 1 and 20 )</h6>
+        </div>
+        <h1 class="fs-4">Guess My Number</h1>
+        <div class="d-flex align-items-center">
+          <hr class="w-50 " />
+          <span id="itemgenerator" class="fs-3 fw-boder px-3 rounded-2 shadow">
+            ?
+          </span>
+          <hr class="w-50 " />
+        </div>
+
+        <div class="d-flex align-items-center">
+          <div class="w-50 d-grid">
+            <input
+              class="w-50 p-2 my-2"
+              type="number"
+              name="nubber"
+              id="inputnumber"
+            />
+            <button id="ckeckbtn" class="btn btn-dark w-25">Check!</button>
+          </div>
+          <div>
+            <h5 class="my-3" id="correctnum"></h5>
+            <h5 id="score" class="mt-1">💯💯 Score : 20</h5>
+            <h5 id="Highscore" class="my-3">💥💥High Score :</h5>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const itemgenerator = document.getElementById("itemgenerator");
+      const input = document.getElementById("inputnumber");
+      const correctnumber = document.getElementById("correctnum");
+      const score = document.getElementById("score");
+      let highscore = document.getElementById("Highscore");
+      let userscore = 20;
+
+      const generaterandom = Math.floor(Math.random() * 20);
+      console.log(generaterandom);
+
+      itemgenerator.textContent = generaterandom;
+      document.getElementById("ckeckbtn").addEventListener("click", (event) => {
+        event.preventDefault();
+        let inputVal = parseInt(input.value);
+       if (!inputVal) {
+          correctnumber.textContent = "📛Guess a number";
+        }
+        else if (inputVal !== generaterandom) {
+          correctnumber.textContent = "‼‼ Wrong";
+
+          userscore--;
+        }
+        else if (inputVal === generaterandom) {
+          correctnumber.textContent = "✔✔ Correct";
+          highscore.textContent = "💥💥 Highscore : " + userscore
+          document.getElementById("form").style.backgroundImage =
+            "linear-gradient(to top right,rgba(14, 228, 25, 0.9), rgb(10, 235, 74))";
+        } else if (highestscore === 10) {
+          document.getElementById("form").style.backgroundImage =
+            "linear-gradient(to bottom, rgba(241, 11, 11, 0.9),rgb(243, 10, 29))";
+          const elements = document.querySelectorAll("h1, p, div, h2, h5, h6");
+          alert("you lost the game!!")
+          elements.forEach((element) => {
+            element.style.color = "white";
+          });
+        }
+
+        score.textContent = "💯💯   Score :  " + userscore;
+      });
+    </script>
+  </body>
+</html>
