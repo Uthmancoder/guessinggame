@@ -11,28 +11,9 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css">
   </head>
-  <style>
-    .bigcont {
-      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAGT6F4rSmbyQVPqkX3fWT-D75qufe5r298WZEQa9d_5uyOdzW5N_TskZyHhL0kzauvQo&usqp=CAU);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      width: 100%;
-      height: 100vh;
-    }
-    .myform {
-      background-image: linear-gradient(
-        to top right,
-        rgba(195, 195, 187, 0.9),
-        rgba(240, 240, 237)
-      );
-    }
 
-    hr{
-      border: 5px solid rgba(31, 31, 27, 0.9);
-    }
-  </style>
   <body>
     <div class="bigcont p-5">
       <form id="form" action="" class="w-50 mx-auto myform shadow rounded-2 border p-4">
@@ -75,46 +56,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script>
-      const itemgenerator = document.getElementById("itemgenerator");
-      const input = document.getElementById("inputnumber");
-      const correctnumber = document.getElementById("correctnum");
-      const score = document.getElementById("score");
-      let highscore = document.getElementById("Highscore");
-      let userscore = 20;
-
-      const generaterandom = Math.floor(Math.random() * 20);
-      console.log(generaterandom);
-
-      itemgenerator.textContent = generaterandom;
-      document.getElementById("ckeckbtn").addEventListener("click", (event) => {
-        event.preventDefault();
-        let inputVal = parseInt(input.value);
-       if (!inputVal) {
-          correctnumber.textContent = "📛Guess a number";
-        }
-        else if (inputVal !== generaterandom) {
-          correctnumber.textContent = "‼‼ Wrong";
-
-          userscore--;
-        }
-        else if (inputVal === generaterandom) {
-          correctnumber.textContent = "✔✔ Correct";
-          highscore.textContent = "💥💥 Highscore : " + userscore
-          document.getElementById("form").style.backgroundImage =
-            "linear-gradient(to top right,rgba(14, 228, 25, 0.9), rgb(10, 235, 74))";
-        } else if (highestscore === 10) {
-          document.getElementById("form").style.backgroundImage =
-            "linear-gradient(to bottom, rgba(241, 11, 11, 0.9),rgb(243, 10, 29))";
-          const elements = document.querySelectorAll("h1, p, div, h2, h5, h6");
-          alert("you lost the game!!")
-          elements.forEach((element) => {
-            element.style.color = "white";
-          });
-        }
-
-        score.textContent = "💯💯   Score :  " + userscore;
-      });
-    </script>
+   <script src="main.js"></script>
   </body>
 </html>

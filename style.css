@@ -1,0 +1,19 @@
+.bigcont {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAGT6F4rSmbyQVPqkX3fWT-D75qufe5r298WZEQa9d_5uyOdzW5N_TskZyHhL0kzauvQo&usqp=CAU);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
+.myform {
+  background-image: linear-gradient(
+    to top right,
+    rgba(195, 195, 187, 0.9),
+    rgba(240, 240, 237)
+  );
+}
+
+hr{
+  border: 5px solid rgba(31, 31, 27, 0.9);
+}
